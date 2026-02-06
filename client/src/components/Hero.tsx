@@ -112,7 +112,7 @@ export default function Hero() {
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             APIs de Pagamento para
-            <span className="block mt-2 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent font-extrabold" style={{ WebkitTextStroke: '0.5px rgba(0, 102, 204, 0.1)' }}>
               Operações Críticas
             </span>
           </h1>

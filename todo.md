@@ -87,3 +87,9 @@
 - [x] Alterar tema padrão de dark para light (fundo claro)
 - [x] Recalcular frequência de transações para atingir 5M por dia (24h)
 - [x] Ajustar lógica de horário noturno para nova frequência
+
+## Ajustes de Gradiente e Integrações
+- [x] Melhorar contraste do gradiente no título "Operações Críticas"
+- [x] Criar seção de integrações (Codiguz, Hopy, Shield)
+- [x] Criar seção de parcerias com IPs (A55, OwemPay, Pagar.me, Vtex, blupay, hypercred)
+- [x] Adicionar logos das empresas parceiras
