@@ -125,7 +125,7 @@ export default function Hero() {
             <Button 
               size="lg" 
               className="text-lg px-8 py-6 group"
-              onClick={scrollToContact}
+              onClick={() => window.open('https://wa.me/5567981148519?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20acesso%20%C3%A0%20plataforma%20CMG%20Investimentos', '_blank')}
             >
               Solicitar Acesso
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

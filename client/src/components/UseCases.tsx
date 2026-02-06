@@ -56,8 +56,8 @@ export default function UseCases() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Solicitação enviada! Nossa equipe entrará em contato em até 24 horas.');
-    setFormData({ name: '', email: '', company: '', phone: '', message: '' });
+    const message = `Olá, gostaria de solicitar acesso à plataforma CMG Investimentos.%0A%0ANome: ${formData.name}%0AEmail: ${formData.email}%0AEmpresa: ${formData.company}%0ATelefone: ${formData.phone}%0A%0AMensagem: ${formData.message}`;
+    window.open(`https://wa.me/5567981148519?text=${message}`, '_blank');
   };
 
   return (
@@ -186,7 +186,7 @@ export default function UseCases() {
                     variant="outline" 
                     size="lg" 
                     className="gap-2"
-                    onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+                    onClick={() => window.open('https://wa.me/5567981148519?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20gerente%20sobre%20a%20plataforma%20CMG%20Investimentos', '_blank')}
                   >
                     <Zap className="w-5 h-5" />
                     Falar com Gerente

@@ -112,3 +112,8 @@
 - [x] Buscar logo blupay
 - [ ] Buscar logo hypercred (não encontrado - mantido texto)
 - [x] Integrar logos ao componente Integrations
+
+## Atualização de CTAs para WhatsApp
+- [x] Atualizar botão "Solicitar Acesso" no Hero para WhatsApp (67 981148519)
+- [x] Atualizar formulário de contato para redirecionar ao WhatsApp
+- [x] Adicionar mensagem pré-preenchida no link do WhatsApp
