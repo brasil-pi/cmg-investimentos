@@ -25,15 +25,19 @@ const generateTransaction = (): Transaction => {
     ? ['Pagamento recebido', 'PIX recebido', 'Venda e-commerce', 'Recebimento cliente', 'Pedido Vtex']
     : ['PIX-out fornecedor', 'Transferência saída', 'Pagamento OTC', 'Saque', 'Repasse parceiro'];
 
-  // Maioria entre R$15-500, alguns picos R$5000-20000
+  // Ticket médio R$120 (variação realista)
+  // 70% entre R$50-150, 20% entre R$15-50, 10% picos R$200-500
   let amount: number;
   const amountRand = Math.random();
-  if (amountRand < 0.85) {
-    // 85% das transações: R$15-500
-    amount = Math.floor(Math.random() * (500 - 15 + 1)) + 15;
+  if (amountRand < 0.70) {
+    // 70%: R$50-150 (próximo ao ticket médio)
+    amount = Math.floor(Math.random() * (150 - 50 + 1)) + 50;
+  } else if (amountRand < 0.90) {
+    // 20%: R$15-50 (baixo valor)
+    amount = Math.floor(Math.random() * (50 - 15 + 1)) + 15;
   } else {
-    // 15% das transações: R$5000-20000 (picos)
-    amount = Math.floor(Math.random() * (20000 - 5000 + 1)) + 5000;
+    // 10%: R$200-500 (picos)
+    amount = Math.floor(Math.random() * (500 - 200 + 1)) + 200;
   }
 
   return {
@@ -56,15 +60,15 @@ export default function DashboardDemo() {
     setTransactions(initialTransactions);
 
     // Função para calcular intervalo baseado no horário
-    // Meta: 5M transações por dia (24h)
+    // Meta: R$5M de VALOR TOTAL por dia com ticket médio R$120
+    // = ~41.666 transações/dia = uma a cada ~2 segundos
     const getInterval = () => {
       const hour = new Date().getHours();
-      // 5M transações / 86400 segundos = ~17ms por transação
-      const baseInterval = 17; // 17 milissegundos
+      const baseInterval = 2073; // 2073ms (~2 segundos)
       
       // Após 22h até 6h: 20% do fluxo (5x mais lento)
       if (hour >= 22 || hour < 6) {
-        return baseInterval * 5; // 85ms
+        return baseInterval * 5; // ~10 segundos
       }
       
       return baseInterval;

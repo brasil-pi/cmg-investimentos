@@ -93,3 +93,10 @@
 - [x] Criar seção de integrações (Codiguz, Hopy, Shield)
 - [x] Criar seção de parcerias com IPs (A55, OwemPay, Pagar.me, Vtex, blupay, hypercred)
 - [x] Adicionar logos das empresas parceiras
+
+## Correções Críticas de Lógica e Layout
+- [x] Corrigir lógica de transações: R$5M de VALOR TOTAL por dia (não quantidade)
+- [x] Ajustar ticket médio para ~R$120
+- [x] Recalcular frequência: ~41.666 transações/dia (uma a cada ~2s)
+- [x] Redesenhar seção de integrações como faixa horizontal com logos
+- [x] Adicionar logos de todas as empresas (Codiguz, Hopy, Shield, A55, OwemPay, Pagar.me, Vtex, blupay, hypercred)
