@@ -100,3 +100,15 @@
 - [x] Recalcular frequência: ~41.666 transações/dia (uma a cada ~2s)
 - [x] Redesenhar seção de integrações como faixa horizontal com logos
 - [x] Adicionar logos de todas as empresas (Codiguz, Hopy, Shield, A55, OwemPay, Pagar.me, Vtex, blupay, hypercred)
+
+## Busca e Integração de Logos
+- [x] Buscar logo Codiguz
+- [x] Buscar logo Hopy
+- [x] Buscar logo Shield
+- [x] Buscar logo A55
+- [x] Buscar logo OwemPay
+- [x] Buscar logo Pagar.me
+- [x] Buscar logo Vtex
+- [x] Buscar logo blupay
+- [ ] Buscar logo hypercred (não encontrado - mantido texto)
+- [x] Integrar logos ao componente Integrations
