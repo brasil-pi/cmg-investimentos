@@ -121,3 +121,16 @@
 ## Reverter Logos de Integrações
 - [x] Remover logos da seção de integrações
 - [x] Voltar a exibir apenas nomes das empresas
+
+## Deploy em Produção
+- [ ] Criar repositório no GitHub
+- [ ] Fazer push do código para GitHub
+- [ ] Conectar repositório à Vercel
+- [ ] Fazer deploy na Vercel
+- [ ] Configurar variáveis de ambiente na Vercel
+
+## Conversão para Frontend Puro
+- [x] Criar vercel.json para configuração de SPA
+- [x] Ajustar package.json para build apenas do cliente
+- [ ] Fazer commit e push para GitHub
+- [ ] Verificar deploy automático na Vercel
