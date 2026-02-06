@@ -117,3 +117,7 @@
 - [x] Atualizar botão "Solicitar Acesso" no Hero para WhatsApp (67 981148519)
 - [x] Atualizar formulário de contato para redirecionar ao WhatsApp
 - [x] Adicionar mensagem pré-preenchida no link do WhatsApp
+
+## Reverter Logos de Integrações
+- [x] Remover logos da seção de integrações
+- [x] Voltar a exibir apenas nomes das empresas
