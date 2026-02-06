@@ -76,3 +76,9 @@
 - [x] Ajustar exemplos de código de Gerenciamento de Saldo conforme API real
 - [x] Atualizar transações do dashboard demo (maioria R$15-500, picos R$5000-20000)
 - [x] Ajustar proporção de transações (99% PIX-in, 1% PIX-out)
+
+## Ajustes de UX e Visual
+- [x] Reduzir frequência de transações no dashboard (menos intenso)
+- [x] Implementar lógica de horário noturno (após 22h = 20% do fluxo)
+- [x] Clarear paleta de cores geral do site
+- [x] Intensificar tons de azul no tema

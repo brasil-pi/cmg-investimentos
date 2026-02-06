@@ -55,14 +55,35 @@ export default function DashboardDemo() {
     const initialTransactions = Array.from({ length: 5 }, generateTransaction);
     setTransactions(initialTransactions);
 
-    const interval = setInterval(() => {
-      const newTransaction = generateTransaction();
-      setTransactions(prev => [newTransaction, ...prev.slice(0, 9)]);
-      setTotalVolume(prev => prev + newTransaction.amount);
-      setTransactionCount(prev => prev + 1);
-    }, 3000);
+    // Função para calcular intervalo baseado no horário
+    const getInterval = () => {
+      const hour = new Date().getHours();
+      const baseInterval = 5000; // 5 segundos (reduzido de 3s)
+      
+      // Após 22h até 6h: 20% do fluxo (5x mais lento)
+      if (hour >= 22 || hour < 6) {
+        return baseInterval * 5; // 25 segundos
+      }
+      
+      return baseInterval;
+    };
 
-    return () => clearInterval(interval);
+    let intervalId: NodeJS.Timeout;
+
+    const scheduleNext = () => {
+      const currentInterval = getInterval();
+      intervalId = setTimeout(() => {
+        const newTransaction = generateTransaction();
+        setTransactions(prev => [newTransaction, ...prev.slice(0, 9)]);
+        setTotalVolume(prev => prev + newTransaction.amount);
+        setTransactionCount(prev => prev + 1);
+        scheduleNext(); // Reagenda com novo intervalo
+      }, currentInterval);
+    };
+
+    scheduleNext();
+
+    return () => clearTimeout(intervalId);
   }, []);
 
   const formatCurrency = (value: number) => {
