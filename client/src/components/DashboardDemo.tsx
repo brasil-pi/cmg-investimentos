@@ -13,19 +13,33 @@ interface Transaction {
 }
 
 const generateTransaction = (): Transaction => {
-  const types: ('in' | 'out')[] = ['in', 'out'];
-  const type = types[Math.floor(Math.random() * types.length)];
-  const statuses: ('approved' | 'pending' | 'rejected')[] = ['approved', 'pending', 'rejected'];
-  const status = statuses[Math.floor(Math.random() * 100) < 85 ? 0 : Math.floor(Math.random() * 100) < 95 ? 1 : 2];
+  // 99% PIX-in, 1% PIX-out
+  const type: 'in' | 'out' = Math.random() < 0.99 ? 'in' : 'out';
+  
+  // 85% aprovado, 10% pendente, 5% rejeitado
+  const rand = Math.random() * 100;
+  const status: 'approved' | 'pending' | 'rejected' = 
+    rand < 85 ? 'approved' : rand < 95 ? 'pending' : 'rejected';
   
   const descriptions = type === 'in' 
-    ? ['Pagamento recebido', 'Transferência PIX', 'Venda produto', 'Recebimento cliente', 'Depósito']
-    : ['Pagamento fornecedor', 'Transferência saída', 'Compra estoque', 'Pagamento serviço', 'Saque'];
+    ? ['Pagamento recebido', 'PIX recebido', 'Venda e-commerce', 'Recebimento cliente', 'Pedido Vtex']
+    : ['PIX-out fornecedor', 'Transferência saída', 'Pagamento OTC', 'Saque', 'Repasse parceiro'];
+
+  // Maioria entre R$15-500, alguns picos R$5000-20000
+  let amount: number;
+  const amountRand = Math.random();
+  if (amountRand < 0.85) {
+    // 85% das transações: R$15-500
+    amount = Math.floor(Math.random() * (500 - 15 + 1)) + 15;
+  } else {
+    // 15% das transações: R$5000-20000 (picos)
+    amount = Math.floor(Math.random() * (20000 - 5000 + 1)) + 5000;
+  }
 
   return {
     id: `TXN${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
     type,
-    amount: Math.floor(Math.random() * 50000) + 100,
+    amount,
     description: descriptions[Math.floor(Math.random() * descriptions.length)],
     status,
     timestamp: new Date()

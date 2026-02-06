@@ -19,21 +19,47 @@ interface APIEndpoint {
 const apis: APIEndpoint[] = [
   {
     id: 'pix-in',
-    title: 'PIX-in',
+    title: 'PIX-in (Criar Transação)',
     description: 'Receba pagamentos PIX em tempo real com webhook instantâneo',
     icon: <ArrowRightLeft className="w-6 h-6" />,
     method: 'POST',
-    endpoint: '/v1/pix/receive',
-    codeExample: `curl -X POST https://api.cmginvestimentos.com/v1/pix/receive \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
+    endpoint: '/createTransaction',
+    codeExample: `curl -X POST https://api.cmginvestimentos.com.br/createTransaction \\
+  -H "userId: YOUR_USER_ID" \\
+  -H "apiKey: YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "account_id": "acc_abc123",
+    "paymentMethod": "pix",
+    "customer": {
+      "name": "João Silva",
+      "document": {
+        "number": "12345678900",
+        "type": "cpf"
+      },
+      "email": "joao@example.com",
+      "phone": "11999999999"
+    },
     "amount": 150.00,
-    "description": "Pagamento pedido #1234",
-    "webhook_url": "https://seu-sistema.com/webhook"
-  }'`,
-    features: ['Webhook em tempo real', 'QR Code dinâmico', 'Conciliação automática', 'Split de pagamento']
+    "items": [{
+      "title": "Produto X",
+      "unitPrice": 150.00,
+      "quantity": 1,
+      "tangible": false,
+      "externalRef": "prod_123"
+    }],
+    "externalId": "order_xyz789",
+    "postbackUrl": ["https://seu-webhook.com/callback"]
+  }'
+
+# Resposta:
+{
+  "id": "txn_abc123",
+  "status": "PENDING",
+  "qrCode": "00020126580014br.gov.bcb.pix...",
+  "liquidValue": 145.50,
+  "retention": 4.50
+}`,
+    features: ['Webhook em tempo real', 'QR Code dinâmico', 'Status: PENDING/RECEIVED/CONFIRMED', 'Retenção para chargebacks']
   },
   {
     id: 'pix-out',
@@ -41,38 +67,53 @@ const apis: APIEndpoint[] = [
     description: 'Envie transferências PIX com aprovação em segundos',
     icon: <ArrowUpRight className="w-6 h-6" />,
     method: 'POST',
-    endpoint: '/v1/pix/send',
-    codeExample: `curl -X POST https://api.cmginvestimentos.com/v1/pix/send \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
+    endpoint: '/pixOut',
+    codeExample: `curl -X POST https://api.cmginvestimentos.com.br/pixOut \\
+  -H "userId: YOUR_USER_ID" \\
+  -H "apiKey: YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "account_id": "acc_abc123",
-    "recipient_key": "email@exemplo.com",
+    "pixKey": "email@exemplo.com",
+    "pixKeyType": "email",
     "amount": 500.00,
-    "description": "Pagamento fornecedor"
-  }'`,
-    features: ['Processamento instantâneo', 'Validação de chave PIX', 'Agendamento de transferências', 'Lote de pagamentos']
+    "description": "Pagamento fornecedor",
+    "externalId": "payout_xyz123",
+    "postbackUrls": ["https://seu-webhook.com/pixout"]
+  }'
+
+# Resposta:
+{
+  "id": "pixout_abc123",
+  "status": "processing"
+}
+
+# Webhook:
+{
+  "transactionId": "pixout_abc123",
+  "status": "PAID",
+  "balanceUpdated": true
+}`,
+    features: ['Processamento instantâneo', 'Tipos: email, phone, evp, cpf, cnpj', 'Webhook de confirmação', 'Status: PAID/FAILED']
   },
 
   {
     id: 'balance',
     title: 'Gerenciamento de Saldo',
-    description: 'Consulte e gerencie saldos em tempo real',
+    description: 'Consulte saldos em tempo real',
     icon: <Wallet className="w-6 h-6" />,
     method: 'GET',
-    endpoint: '/v1/accounts/:id/balance',
-    codeExample: `curl -X GET https://api.cmginvestimentos.com/v1/accounts/acc_abc123/balance \\
-  -H "Authorization: Bearer YOUR_API_KEY"
+    endpoint: '/balance',
+    codeExample: `curl -X GET https://api.cmginvestimentos.com.br/balance \\
+  -H "userId: YOUR_USER_ID" \\
+  -H "apiKey: YOUR_API_KEY" \\
+  -H "Content-Type: application/json"
 
 # Resposta:
 {
-  "account_id": "acc_abc123",
-  "available_balance": 15000.00,
-  "blocked_balance": 500.00,
-  "currency": "BRL",
-  "updated_at": "2026-02-05T18:30:00Z"
+  "amount": 15000.00,
+  "status": "sucess"
 }`,
-    features: ['Consulta em tempo real', 'Histórico de transações', 'Bloqueio preventivo', 'Relatórios detalhados']
+    features: ['Consulta em tempo real', 'Saldo disponível instantâneo', 'Autenticação via headers', 'Performance otimizada']
   }
 ];
 

@@ -68,3 +68,11 @@
 - [x] Remover endpoint de "Criação de Contas" da seção de APIs
 - [x] Atualizar link da documentação para https://cmginvestimentos.docs.apiary.io/#reference/
 - [x] Revisar todos os textos para compliance
+
+## Ajustes de Documentação e Dados Realistas
+- [x] Acessar documentação oficial da API no Apiary
+- [x] Ajustar exemplos de código PIX-in conforme API real
+- [x] Ajustar exemplos de código PIX-out conforme API real
+- [x] Ajustar exemplos de código de Gerenciamento de Saldo conforme API real
+- [x] Atualizar transações do dashboard demo (maioria R$15-500, picos R$5000-20000)
+- [x] Ajustar proporção de transações (99% PIX-in, 1% PIX-out)
