@@ -56,13 +56,15 @@ export default function DashboardDemo() {
     setTransactions(initialTransactions);
 
     // Função para calcular intervalo baseado no horário
+    // Meta: 5M transações por dia (24h)
     const getInterval = () => {
       const hour = new Date().getHours();
-      const baseInterval = 5000; // 5 segundos (reduzido de 3s)
+      // 5M transações / 86400 segundos = ~17ms por transação
+      const baseInterval = 17; // 17 milissegundos
       
       // Após 22h até 6h: 20% do fluxo (5x mais lento)
       if (hour >= 22 || hour < 6) {
-        return baseInterval * 5; // 25 segundos
+        return baseInterval * 5; // 85ms
       }
       
       return baseInterval;

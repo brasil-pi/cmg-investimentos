@@ -82,3 +82,8 @@
 - [x] Implementar lógica de horário noturno (após 22h = 20% do fluxo)
 - [x] Clarear paleta de cores geral do site
 - [x] Intensificar tons de azul no tema
+
+## Ajustes de Tema e Frequência
+- [x] Alterar tema padrão de dark para light (fundo claro)
+- [x] Recalcular frequência de transações para atingir 5M por dia (24h)
+- [x] Ajustar lógica de horário noturno para nova frequência
