@@ -118,7 +118,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Integração completa de pagamentos PIX, criação de contas bancárias gerenciadas e infraestrutura para operadores financeiros, dropshippers e mesas OTC.
+            Integração completa de pagamentos PIX, contas bancárias gerenciadas e infraestrutura para operadores financeiros, e-commerce e mesas OTC.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
@@ -134,7 +134,7 @@ export default function Hero() {
               size="lg" 
               variant="outline" 
               className="text-lg px-8 py-6"
-              onClick={() => document.getElementById('apis')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.open('https://cmginvestimentos.docs.apiary.io/#reference/', '_blank')}
             >
               Ver Documentação
             </Button>
@@ -165,9 +165,9 @@ export default function Hero() {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                 <Lock className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold">Contas Protegidas</h3>
+              <h3 className="text-lg font-semibold">Continuidade Operacional</h3>
               <p className="text-sm text-muted-foreground text-center">
-                Estruturas blindadas contra bloqueios judiciais
+                Infraestrutura resiliente para operações ininterruptas
               </p>
             </div>
           </div>

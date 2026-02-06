@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRightLeft, ArrowUpRight, UserPlus, Wallet, Copy, Check } from 'lucide-react';
+import { ArrowRightLeft, ArrowUpRight, Wallet, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface APIEndpoint {
@@ -53,26 +53,7 @@ const apis: APIEndpoint[] = [
   }'`,
     features: ['Processamento instantâneo', 'Validação de chave PIX', 'Agendamento de transferências', 'Lote de pagamentos']
   },
-  {
-    id: 'accounts',
-    title: 'Criação de Contas',
-    description: 'Crie contas bancárias gerenciadas para seus clientes',
-    icon: <UserPlus className="w-6 h-6" />,
-    method: 'POST',
-    endpoint: '/v1/accounts/create',
-    codeExample: `curl -X POST https://api.cmginvestimentos.com/v1/accounts/create \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "holder_name": "João Silva",
-    "holder_document": "12345678900",
-    "account_type": "payment",
-    "metadata": {
-      "customer_id": "cust_xyz789"
-    }
-  }'`,
-    features: ['Onboarding digital', 'KYC automatizado', 'Múltiplas contas por CPF/CNPJ', 'Gestão de limites']
-  },
+
   {
     id: 'balance',
     title: 'Gerenciamento de Saldo',
@@ -121,7 +102,7 @@ export default function APIsSection() {
         </div>
 
         <Tabs value={selectedAPI} onValueChange={setSelectedAPI} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8 h-auto">
+          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 h-auto">
             {apis.map(api => (
               <TabsTrigger 
                 key={api.id} 
@@ -210,7 +191,11 @@ export default function APIsSection() {
         </Tabs>
 
         <div className="mt-12 text-center">
-          <Button size="lg" className="gap-2">
+          <Button 
+            size="lg" 
+            className="gap-2"
+            onClick={() => window.open('https://cmginvestimentos.docs.apiary.io/#reference/', '_blank')}
+          >
             Acessar Documentação Completa
             <ArrowUpRight className="w-5 h-5" />
           </Button>

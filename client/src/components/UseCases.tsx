@@ -11,18 +11,18 @@ import { toast } from 'sonner';
 const useCases = [
   {
     icon: <Package className="w-8 h-8" />,
-    title: 'Dropshippers',
+    title: 'E-commerce',
     description: 'Infraestrutura completa para operações de alto volume',
     benefits: [
+      'Integração nativa com Vtex e principais plataformas',
       'Múltiplas contas para segmentar operações',
-      'Proteção contra bloqueios judiciais',
       'Processamento instantâneo de PIX',
       'Conciliação automática de recebimentos',
       'Split de pagamento para parceiros',
       'Gestão de chargebacks e disputas'
     ],
     metrics: [
-      { label: 'Redução de bloqueios', value: '95%' },
+      { label: 'Uptime garantido', value: '99.9%' },
       { label: 'Tempo de aprovação', value: '< 2s' }
     ]
   },
@@ -69,7 +69,7 @@ export default function UseCases() {
             Soluções Especializadas para Cada Operação
           </h2>
           <p className="text-xl text-muted-foreground">
-            Infraestrutura adaptada às necessidades específicas de dropshippers e operadores financeiros de alto volume.
+            Infraestrutura adaptada às necessidades específicas de e-commerce e operadores financeiros de alto volume.
           </p>
         </div>
 

@@ -58,5 +58,13 @@
 ## Finalização
 - [x] Testar todas as funcionalidades
 - [x] Revisar textos e copywriting
-- [ ] Criar checkpoint final
-- [ ] Entregar ao usuário
+- [x] Criar checkpoint final
+- [x] Entregar ao usuário
+
+## Ajustes de Compliance
+- [x] Remover linguagem explícita sobre "bloqueios judiciais" (substituir por "continuidade operacional")
+- [x] Trocar todas referências a "dropshipper" por "E-commerce"
+- [x] Adicionar menção a "integração Vtex" na seção de e-commerce
+- [x] Remover endpoint de "Criação de Contas" da seção de APIs
+- [x] Atualizar link da documentação para https://cmginvestimentos.docs.apiary.io/#reference/
+- [x] Revisar todos os textos para compliance

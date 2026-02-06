@@ -46,7 +46,7 @@ export default function Footer() {
               <li><a href="#" className="hover:text-primary transition-colors">Sobre Nós</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Compliance</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Segurança</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Documentação</a></li>
+              <li><a href="https://cmginvestimentos.docs.apiary.io/#reference/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Documentação</a></li>
             </ul>
           </div>
 

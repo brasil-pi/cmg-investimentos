@@ -5,8 +5,8 @@ import { Shield, Lock, FileCheck, Building2, Bitcoin, Users } from 'lucide-react
 const features = [
   {
     icon: <Shield className="w-8 h-8" />,
-    title: 'Proteção Contra Bloqueios Judiciais',
-    description: 'Estrutura de contas segregadas com blindagem patrimonial e proteção jurídica avançada para operações de alto volume.',
+    title: 'Continuidade Operacional Garantida',
+    description: 'Estrutura de contas segregadas com arquitetura resiliente e gestão de risco avançada para operações de alto volume.',
     highlight: true
   },
   {
@@ -24,7 +24,7 @@ const features = [
   {
     icon: <Users className="w-8 h-8" />,
     title: 'Múltiplas Contas por Titular',
-    description: 'Crie quantas contas precisar para o mesmo CPF/CNPJ, ideal para dropshippers e operadores com múltiplos negócios.',
+    description: 'Crie quantas contas precisar para o mesmo CPF/CNPJ, ideal para e-commerce (integração Vtex) e operadores com múltiplos negócios.',
     highlight: false
   },
   {
